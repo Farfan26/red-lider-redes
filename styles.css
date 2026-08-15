@@ -1,0 +1,329 @@
+/* ---------- VARIABLES DE COLOR Y DISEÑO ---------- */
+:root {
+  --navy: #12305F;
+  --navy-2: #1B4A8C;
+  --orange: #F5811F;
+  --orange-2: #FFA652;
+  --bg-1: #EAF2FB;
+  --bg-2: #FFFFFF;
+  --bg-3: #FFF4E9;
+  --card-bg: #FFFFFF;
+  --text: #1C2B44;
+  --text-soft: #5B6B84;
+  --fb: #1877F2;
+  --ig-1: #F58529;
+  --ig-2: #DD2A7B;
+  --ig-3: #8134AF;
+  --tk-1: #25F4EE;
+  --tk-2: #FE2C55;
+}
+
+/* ---------- CONFIGURACIÓN GENERAL ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(27, 74, 140, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 15%, rgba(245, 129, 31, 0.10), transparent 45%),
+    linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+  overflow-x: hidden;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centra horizontalmente todo el contenido principal */
+}
+
+/* ---------- LOGOTIPO ---------- */
+.logo-zone {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.logo-glow {
+  position: relative;
+  padding: 18px 26px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(18, 48, 95, 0.10);
+  animation: floatLogo 4.5s ease-in-out infinite;
+}
+
+.logo-glow::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 24px;
+  background: linear-gradient(120deg, var(--navy-2), var(--orange), var(--navy-2));
+  background-size: 300% 300%;
+  filter: blur(14px);
+  opacity: 0.35;
+  z-index: -1;
+  animation: gradientShift 6s ease infinite;
+}
+
+.logo-glow img {
+  display: block;
+  width: 220px;
+  height: auto;
+}
+
+@keyframes floatLogo {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ---------- TÍTULOS Y CABECERA ---------- */
+.headline {
+  text-align: center;
+  margin: 28px 0 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.4vw, 46px);
+  line-height: 1.15;
+  background: linear-gradient(100deg, var(--navy) 0%, var(--navy-2) 40%, var(--orange) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subline {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: clamp(15px, 1.6vw, 18px);
+  max-width: 640px;
+  margin: 0 auto 44px;
+}
+
+/* ---------- SECCIÓN HERO (Centrada) ---------- */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  /* Limita el ancho para que las tarjetas no se estiren de más */
+  margin: 0 auto;
+}
+
+/* ---------- TARJETAS DE REDES SOCIALES ---------- */
+.cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.social-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  background: var(--card-bg);
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 8px 24px rgba(18, 48, 95, 0.08);
+  border: 1px solid rgba(18, 48, 95, 0.06);
+  overflow: visible;
+  opacity: 0;
+  transform: translateX(24px);
+  animation: cardIn 0.6s ease forwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 34px rgba(18, 48, 95, 0.18);
+}
+
+.social-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateX(-120%);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.social-card:hover::after {
+  animation: sheen 0.9s ease;
+}
+
+@keyframes sheen {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---------- LEÓN DENTRO DE LA TARJETA ---------- */
+.leon-wrap {
+  flex: 0 0 auto;
+  width: 90px;
+  height: 90px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leon-img {
+  position: absolute;
+  bottom: -8px;
+  left: -8px;
+  width: 118px;
+  height: 118px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.icon-wrap {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: iconPulse 2.6s ease-in-out infinite;
+}
+
+.icon-wrap svg {
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes iconPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.card-text {
+  flex: 1 1 auto;
+}
+
+.card-text .name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--navy);
+}
+
+.card-text .handle {
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+
+.go-arrow {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy), var(--navy-2));
+  color: #fff;
+  transition: transform 0.25s ease;
+}
+
+.social-card:hover .go-arrow {
+  transform: translateX(4px);
+}
+
+/* Estilos específicos de los iconos según la marca */
+.icon-facebook {
+  background: linear-gradient(135deg, #1877F2, #4A9BFF);
+  color: #fff;
+}
+
+.icon-instagram {
+  background: linear-gradient(135deg, var(--ig-1), var(--ig-2) 55%, var(--ig-3));
+  color: #fff;
+}
+
+.icon-tiktok {
+  background: linear-gradient(135deg, #111318, #2b2f3a);
+  color: #fff;
+}
+
+.icon-default {
+  background: linear-gradient(135deg, var(--navy), var(--orange));
+  color: #fff;
+}
+
+/* ---------- PIE DE PÁGINA ---------- */
+.footer {
+  text-align: center;
+  margin-top: 64px;
+  color: var(--text-soft);
+  font-size: 14px;
+  width: 100%;
+}
+
+.footer strong {
+  color: var(--navy);
+}
+
+/* Accesibilidad: Desactivar animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
