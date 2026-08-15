@@ -322,7 +322,7 @@ body {
 
 /* Accesibilidad: Desactivar animaciones si el usuario lo prefiere */
 @media (prefers-reduced-motion: reduce) {
-  *:not(.robot-mascot):not(.robot-mascot *) {
+  *:not(.persona-mascot):not(.persona-mascot *) {
     animation: none !important;
     transition: none !important;
   }
