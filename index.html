@@ -69,8 +69,10 @@
           <!-- BRAZO IZQUIERDO -->
           <g class="arm-L" filter="url(#soft)">
             <rect x="40" y="146" width="20" height="46" rx="10" fill="url(#bodyDark)" />
-            <!-- manga corta del polo -->
-            <rect x="40" y="146" width="20" height="13" rx="7" fill="var(--orange)" />
+            <!-- manga corta del polo, con rayas -->
+            <rect x="40" y="146" width="20" height="13" rx="7" fill="var(--navy)" />
+            <rect x="40" y="150" width="20" height="3" fill="var(--orange)" />
+            <rect x="40" y="154" width="20" height="2" fill="#0a1622" />
             <circle cx="50" cy="196" r="12" fill="url(#metal)" />
             <circle cx="50" cy="196" r="5" fill="#0e2530" />
           </g>
@@ -83,26 +85,33 @@
 
             <!-- POLO Red Líder -->
             <rect x="64" y="142" width="72" height="76" rx="22" fill="var(--navy)" />
-            <!-- cuello en V -->
-            <path d="M85 142 L100 158 L115 142" fill="none" stroke="var(--orange)" stroke-width="4"
+            <!-- cuello en V con rayas -->
+            <path d="M84 141 L100 158 L116 141" fill="none" stroke="var(--orange)" stroke-width="3.2"
               stroke-linecap="round" stroke-linejoin="round" />
-            <!-- franja inferior -->
-            <rect x="70" y="203" width="60" height="7" rx="2" fill="var(--orange)" />
-            <!-- botones -->
-            <circle cx="100" cy="172" r="2" fill="var(--orange)" />
-            <circle cx="100" cy="182" r="2" fill="var(--orange)" />
-            <circle cx="100" cy="192" r="2" fill="var(--orange)" />
-            <!-- insignia "RL" -->
-            <rect x="104" y="150" width="24" height="17" rx="4" fill="#ffffff" />
-            <text x="116" y="163" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="800"
-              font-size="9" fill="var(--navy)">RL</text>
+            <path d="M84 144.5 L100 161.5 L116 144.5" fill="none" stroke="#0a1622" stroke-width="1.4"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <!-- botón -->
+            <circle cx="100" cy="163" r="1.6" fill="#dfe6ee" />
+            <circle cx="100" cy="169" r="1.6" fill="#dfe6ee" />
+
+            <!-- logo pequeño bordado, a la izquierda del pecho -->
+            <g transform="translate(72,178)">
+              <rect x="0" y="0" width="7" height="7" rx="1.5" fill="var(--orange)" />
+              <rect x="2" y="2" width="3" height="3" fill="var(--navy)" />
+              <text x="10" y="4" font-family="Poppins, sans-serif" font-weight="800" font-size="6"
+                letter-spacing=".2" fill="var(--orange)">RED</text>
+              <text x="10" y="10.5" font-family="Poppins, sans-serif" font-weight="800" font-size="5.2"
+                letter-spacing=".2" fill="#ffffff">LÍDER</text>
+            </g>
           </g>
 
           <!-- BRAZO DERECHO (saluda / señala) -->
           <g class="arm-R" filter="url(#soft)">
             <rect x="140" y="146" width="20" height="46" rx="10" fill="url(#bodyDark)" />
-            <!-- manga corta del polo -->
-            <rect x="140" y="146" width="20" height="13" rx="7" fill="var(--orange)" />
+            <!-- manga corta del polo, con rayas -->
+            <rect x="140" y="146" width="20" height="13" rx="7" fill="var(--navy)" />
+            <rect x="140" y="150" width="20" height="3" fill="var(--orange)" />
+            <rect x="140" y="154" width="20" height="2" fill="#0a1622" />
             <circle cx="150" cy="196" r="12" fill="url(#metal)" />
             <circle cx="150" cy="196" r="5" fill="#0e2530" />
           </g>
