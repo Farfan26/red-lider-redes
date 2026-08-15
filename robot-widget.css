@@ -227,26 +227,8 @@
   }
 }
 
-/* ---------------- ACCESIBILIDAD ----------------
-   Si el dispositivo tiene "reducir movimiento" activado,
-   se apaga la animación pero el robot se queda visible
-   (nunca tuvo opacity:0, así que no hace falta forzarla,
-   solo detener el movimiento). */
-@media (prefers-reduced-motion: reduce) {
-
-  .robot-mascot,
-  .robot-mascot .thruster,
-  .robot-mascot .head,
-  .robot-mascot .eye,
-  .robot-mascot .pupil,
-  .robot-mascot .antenna,
-  .robot-mascot .antenna-tip,
-  .robot-mascot .arm-R,
-  .robot-mascot .arm-L {
-    animation: none !important;
-  }
-
-  .robot-mascot {
-    transform: none;
-  }
-}
+/* Nota: el robot es solo decorativo, así que sus animaciones
+   se mantienen activas siempre, incluso si el dispositivo
+   tiene activada la opción de accesibilidad "reducir
+   movimiento" (a diferencia de las tarjetas de redes, que sí
+   respetan esa preferencia). */
