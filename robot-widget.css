@@ -1,0 +1,252 @@
+/* =========================================================
+   ROBOT MASCOTA — decorativo, al costado de las tarjetas
+   de redes sociales. Sin formulario, sin login.
+   ========================================================= */
+
+/* La sección .hero pasa a ser una fila: robot + tarjetas */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.robot-mascot {
+  flex: 0 0 auto;
+  width: 190px;
+  height: 266px;
+  animation: robotFloat 3.6s ease-in-out infinite;
+}
+
+.robot-mascot svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@keyframes robotFloat {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-10px)
+  }
+}
+
+.robot-mascot .thruster {
+  transform-origin: 100px 232px;
+  animation: robotThrust 0.9s ease-in-out infinite
+}
+
+@keyframes robotThrust {
+
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: .55
+  }
+
+  50% {
+    transform: scaleX(.75);
+    opacity: .9
+  }
+}
+
+.robot-mascot .head {
+  transform-origin: 100px 96px;
+  animation: robotNod 4s ease-in-out infinite
+}
+
+@keyframes robotNod {
+
+  0%,
+  100% {
+    transform: rotate(0) translateY(0)
+  }
+
+  25% {
+    transform: rotate(-3deg) translateY(-1px)
+  }
+
+  50% {
+    transform: rotate(0) translateY(1px)
+  }
+
+  75% {
+    transform: rotate(3deg) translateY(-1px)
+  }
+}
+
+.robot-mascot .eye {
+  transform-origin: center;
+  animation: robotBlink 4.5s ease-in-out infinite
+}
+
+@keyframes robotBlink {
+
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1)
+  }
+
+  96% {
+    transform: scaleY(.1)
+  }
+}
+
+.robot-mascot .pupil {
+  animation: robotLook 5s ease-in-out infinite
+}
+
+@keyframes robotLook {
+
+  0%,
+  100% {
+    transform: translateX(0)
+  }
+
+  30% {
+    transform: translateX(3px)
+  }
+
+  60% {
+    transform: translateX(-3px)
+  }
+}
+
+.robot-mascot .antenna {
+  transform-origin: 100px 46px;
+  animation: robotAntenna 2.8s ease-in-out infinite
+}
+
+@keyframes robotAntenna {
+
+  0%,
+  100% {
+    transform: rotate(-6deg)
+  }
+
+  50% {
+    transform: rotate(6deg)
+  }
+}
+
+.robot-mascot .antenna-tip {
+  animation: robotPulse 1.4s ease-in-out infinite
+}
+
+@keyframes robotPulse {
+
+  0%,
+  100% {
+    opacity: .6;
+    r: 6
+  }
+
+  50% {
+    opacity: 1;
+    r: 8
+  }
+}
+
+.robot-mascot .arm-R {
+  transform-origin: 150px 150px;
+  animation: robotGestureR 6s ease-in-out infinite
+}
+
+@keyframes robotGestureR {
+  0% {
+    transform: rotate(0)
+  }
+
+  10% {
+    transform: rotate(-115deg)
+  }
+
+  18% {
+    transform: rotate(-95deg)
+  }
+
+  26% {
+    transform: rotate(-115deg)
+  }
+
+  34% {
+    transform: rotate(-95deg)
+  }
+
+  42% {
+    transform: rotate(-115deg)
+  }
+
+  55% {
+    transform: rotate(-42deg)
+  }
+
+  80% {
+    transform: rotate(-42deg)
+  }
+
+  100% {
+    transform: rotate(0)
+  }
+}
+
+.robot-mascot .arm-L {
+  transform-origin: 50px 150px;
+  animation: robotGestureL 6s ease-in-out infinite
+}
+
+@keyframes robotGestureL {
+
+  0%,
+  100% {
+    transform: rotate(0)
+  }
+
+  50% {
+    transform: rotate(14deg)
+  }
+}
+
+/* ---------------- RESPONSIVE (celular / tablet) ---------------- */
+@media (max-width: 640px) {
+  .hero {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .robot-mascot {
+    width: 140px;
+    height: 196px;
+    margin-bottom: -10px;
+  }
+}
+
+/* ---------------- ACCESIBILIDAD ----------------
+   Si el dispositivo tiene "reducir movimiento" activado,
+   se apaga la animación pero el robot se queda visible
+   (nunca tuvo opacity:0, así que no hace falta forzarla,
+   solo detener el movimiento). */
+@media (prefers-reduced-motion: reduce) {
+
+  .robot-mascot,
+  .robot-mascot .thruster,
+  .robot-mascot .head,
+  .robot-mascot .eye,
+  .robot-mascot .pupil,
+  .robot-mascot .antenna,
+  .robot-mascot .antenna-tip,
+  .robot-mascot .arm-R,
+  .robot-mascot .arm-L {
+    animation: none !important;
+  }
+
+  .robot-mascot {
+    transform: none;
+  }
+}
