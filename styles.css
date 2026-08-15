@@ -326,4 +326,9 @@ body {
     animation: none !important;
     transition: none !important;
   }
+
+  .social-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
