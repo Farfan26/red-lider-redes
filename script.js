@@ -28,45 +28,38 @@ const SOCIAL_NETWORKS = [
     iconClass: "icon-tiktok",
     svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.35a2.72 2.72 0 11-2.72-2.72c.24 0 .48.03.7.08V9.4a5.9 5.9 0 00-.7-.04A5.92 5.92 0 004 15.28a5.92 5.92 0 0011.84 0V8.62a8.3 8.3 0 004.16 1.12V6.53a5.06 5.06 0 01-3.4-4.53z"/></svg>`
   }
-
-  /* 👇 Ejemplo: así se agregaría una nueva red social
-  {
-    name: "LinkedIn",
-    handle: "Red Líder",
-    url: "https://www.linkedin.com/company/tu-empresa",
-    leon: "assets/leon4.png",
-    iconClass: "icon-default",
-    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.48V23H.24V8.25zM8.5 8.25h4.29v2.01h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.86V23h-4.48v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23H8.5V8.25z"/></svg>`
-  }
-  */
 ];
 
-const container = document.getElementById('cards-col');
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById('cards-col');
+  
+  if (!container) return;
 
-SOCIAL_NETWORKS.forEach((net, i) => {
-  const card = document.createElement('a');
-  card.href = net.url;
-  card.target = "_blank";
-  card.rel = "noopener noreferrer";
-  card.className = "social-card";
-  card.style.animationDelay = (i * 0.15 + 0.1) + "s";
+  SOCIAL_NETWORKS.forEach((net, i) => {
+    const card = document.createElement('a');
+    card.href = net.url;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+    card.className = "social-card";
+    card.style.animationDelay = (i * 0.15 + 0.1) + "s";
 
-  card.innerHTML = `
-    <div class="leon-wrap">
-      <img src="${net.leon}" alt="Mascota Red Líder" class="leon-img">
-    </div>
-    <div class="icon-wrap ${net.iconClass}" style="animation-delay:${i * 0.3}s">
-      ${net.svg}
-    </div>
-    <div class="card-text">
-      <div class="name">${net.name}</div>
-      <div class="handle">${net.handle}</div>
-    </div>
-    <div class="go-arrow">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 6l6 6-6 6"/>
-      </svg>
-    </div>
-  `;
-  container.appendChild(card);
+    card.innerHTML = `
+      <div class="leon-wrap">
+        <img src="${net.leon}" alt="Mascota Red Líder" class="leon-img">
+      </div>
+      <div class="icon-wrap ${net.iconClass}" style="animation-delay:${i * 0.3}s">
+        ${net.svg}
+      </div>
+      <div class="card-text">
+        <div class="name">${net.name}</div>
+        <div class="handle">${net.handle}</div>
+      </div>
+      <div class="go-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 6l6 6-6 6"/>
+        </svg>
+      </div>
+    `;
+    container.appendChild(card);
+  });
 });
